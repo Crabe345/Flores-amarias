@@ -1,0 +1,1052 @@
+/* ========================================
+   CONFIGURACIÓN GENERAL
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+
+    --amarillo-principal: #ffd84d;
+    --amarillo-claro: #fff1a8;
+    --amarillo-oscuro: #e5a91c;
+
+    --crema: #fffaf0;
+
+    --rosa-pastel: #f7d7de;
+
+    --verde: #80a875;
+    --verde-claro: #a8c99e;
+
+    --texto: #655649;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color: var(--texto);
+
+    background:
+
+        radial-gradient(circle at 15% 15%,
+            #fff2a8 0%,
+            transparent 25%),
+
+        radial-gradient(circle at 85% 25%,
+            #f9dfe5 0%,
+            transparent 25%),
+
+        radial-gradient(circle at 50% 90%,
+            #e8f1df 0%,
+            transparent 30%),
+
+        linear-gradient(135deg,
+            #fffaf1,
+            #fff4d8,
+            #fde8ed);
+}
+
+
+
+/* ========================================
+   DECORACIONES DEL FONDO
+======================================== */
+
+.decoracion {
+
+    position: fixed;
+
+    z-index: 0;
+
+    color: rgba(238, 184, 35, 0.2);
+
+    pointer-events: none;
+
+    animation:
+        decoracionFlotar 5s ease-in-out infinite;
+}
+
+
+.flor-fondo-1 {
+
+    font-size: 130px;
+
+    left: -20px;
+    top: 5%;
+}
+
+
+.flor-fondo-2 {
+
+    font-size: 100px;
+
+    right: 2%;
+    top: 22%;
+
+    animation-delay: 1s;
+}
+
+
+.flor-fondo-3 {
+
+    font-size: 150px;
+
+    right: 4%;
+    bottom: 0;
+
+    animation-delay: 2s;
+}
+
+
+@keyframes decoracionFlotar {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0) rotate(-5deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-15px) rotate(7deg);
+
+    }
+
+}
+
+
+
+/* ========================================
+   PANTALLA INICIAL
+======================================== */
+
+.inicio {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    z-index: 5;
+
+    padding: 30px;
+
+    transition:
+        opacity 0.8s ease;
+}
+
+
+
+.titulo-inicio {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+
+.titulo-inicio h1 {
+
+    font-size:
+        clamp(2.2rem,
+            6vw,
+            4.2rem);
+
+    font-weight: 400;
+
+    color: #745f45;
+
+    margin-bottom: 12px;
+}
+
+
+.titulo-inicio p {
+
+    font-size: 1.05rem;
+
+    color: #917d68;
+}
+
+
+.mini-flor {
+
+    display: inline-block;
+
+    font-size: 45px;
+
+    margin-bottom: 8px;
+
+    animation:
+        miniFlor 3s ease-in-out infinite;
+}
+
+
+@keyframes miniFlor {
+
+    50% {
+
+        transform:
+            translateY(-8px) rotate(12deg);
+
+    }
+
+}
+
+
+
+/* ========================================
+   SOBRE
+======================================== */
+
+.contenedor-sobre {
+
+    width: 350px;
+
+    height: 240px;
+
+    position: relative;
+
+    cursor: pointer;
+
+    perspective: 1200px;
+
+    z-index: 10;
+}
+
+
+.sobre {
+
+    width: 100%;
+
+    height: 100%;
+
+    position: relative;
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+.contenedor-sobre:hover .sobre {
+
+    transform:
+        translateY(-10px) scale(1.02);
+}
+
+
+
+.sobre-cuerpo {
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 100%;
+
+    height: 190px;
+
+    background:
+        linear-gradient(145deg,
+            #f4c866,
+            #f8d98b);
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    z-index: 2;
+
+    box-shadow:
+        0 25px 50px rgba(92, 68, 40, 0.18);
+}
+
+
+
+.sobre-cuerpo::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 255px;
+
+    height: 255px;
+
+    left: 48px;
+
+    top: 78px;
+
+    transform:
+        rotate(45deg);
+
+    background: #f9dda0;
+
+    border-radius: 15px;
+}
+
+
+
+.tapa {
+
+    position: absolute;
+
+    top: 50px;
+
+    width: 0;
+    height: 0;
+
+    border-left:
+        175px solid transparent;
+
+    border-right:
+        175px solid transparent;
+
+    border-top:
+        130px solid #eabb54;
+
+    transform-origin:
+        top center;
+
+    transition:
+        transform 1s cubic-bezier(.68,
+            -.45,
+            .27,
+            1.45);
+
+    z-index: 5;
+}
+
+
+
+.sello {
+
+    position: absolute;
+
+    top: 124px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(145deg,
+            #f1a6b3,
+            #e58e9e);
+
+    box-shadow:
+        0 6px 15px rgba(90, 50, 50, 0.25);
+
+    font-size: 27px;
+
+    z-index: 10;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.5s ease;
+}
+
+
+
+.contenedor-sobre.abierto .tapa {
+
+    transform:
+        rotateX(180deg);
+}
+
+
+.contenedor-sobre.abierto .sello {
+
+    opacity: 0;
+
+    transform:
+        translateX(-50%) scale(0.2);
+}
+
+
+
+.texto-abrir {
+
+    margin-top: 30px;
+
+    color: #967d68;
+
+    letter-spacing: 1px;
+
+    font-size: 0.95rem;
+
+    animation:
+        respirar 2s ease-in-out infinite;
+}
+
+
+@keyframes respirar {
+
+    50% {
+
+        opacity: 0.45;
+
+    }
+
+}
+
+
+
+/* ========================================
+   CONTENIDO
+======================================== */
+
+.contenido {
+
+    min-height: 100vh;
+
+    display: none;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    padding:
+        55px 20px 100px;
+
+    opacity: 0;
+}
+
+
+.contenido.visible {
+
+    display: flex;
+
+    animation:
+        aparecerContenido 1.3s forwards;
+}
+
+
+@keyframes aparecerContenido {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(40px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+
+/* ========================================
+   RAMO SVG
+======================================== */
+
+.contenedor-ramo {
+
+    width:
+        min(520px,
+            96vw);
+
+    margin-bottom: -85px;
+
+    z-index: 20;
+
+    pointer-events: none;
+
+    filter:
+        drop-shadow(0 25px 20px rgba(92, 67, 36, 0.18));
+
+    animation:
+        ramoCompleto 5s ease-in-out infinite;
+}
+
+
+
+@keyframes ramoCompleto {
+
+    0%,
+    100% {
+
+        transform:
+            rotate(-1.5deg) translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            rotate(1.5deg) translateY(-10px);
+
+    }
+
+}
+
+
+
+.ramo-svg {
+
+    width: 100%;
+
+    overflow: visible;
+}
+
+
+
+/* TALLOS */
+
+.tallos path {
+
+    fill: none;
+
+    stroke: #61895d;
+
+    stroke-width: 10;
+
+    stroke-linecap: round;
+}
+
+
+
+/* HOJAS */
+
+.hojas ellipse {
+
+    fill:
+        var(--verde);
+
+    transform-box:
+        fill-box;
+
+    transform-origin:
+        center;
+
+    animation:
+        hojaMover 3.5s ease-in-out infinite;
+}
+
+
+.hojas ellipse:nth-child(even) {
+
+    fill:
+        var(--verde-claro);
+
+    animation-delay: 0.8s;
+}
+
+
+
+@keyframes hojaMover {
+
+    50% {
+
+        transform:
+            rotate(6deg) scale(1.03);
+
+    }
+
+}
+
+
+
+/* PÉTALOS */
+
+.petalos ellipse {
+
+    fill:
+        url("#amarillo");
+
+    fill: #ffd94f;
+
+    stroke: #f3be23;
+
+    stroke-width: 2;
+
+    filter:
+        drop-shadow(0 5px 4px rgba(140, 95, 12, 0.13));
+}
+
+
+
+.centro-flor {
+
+    fill:
+        #a66f28;
+
+    stroke:
+        #794b18;
+
+    stroke-width: 4;
+}
+
+
+.brillo-flor {
+
+    fill:
+        rgba(255,
+            229,
+            148,
+            0.7);
+}
+
+
+
+/* MOVIMIENTOS INDIVIDUALES */
+
+.flor {
+
+    transform-box:
+        fill-box;
+
+    transform-origin:
+        center;
+
+}
+
+
+.flor-central {
+
+    animation:
+        florCentral 4s ease-in-out infinite;
+}
+
+
+@keyframes florCentral {
+
+    0%,
+    100% {
+
+        transform:
+            rotate(-2deg) scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            rotate(3deg) scale(1.045);
+
+    }
+
+}
+
+
+
+.flor-izquierda {
+
+    animation:
+        florIzquierda 4.5s ease-in-out infinite;
+}
+
+
+@keyframes florIzquierda {
+
+    0%,
+    100% {
+
+        transform:
+            rotate(-3deg);
+
+    }
+
+    50% {
+
+        transform:
+            rotate(7deg) translateY(-4px);
+
+    }
+
+}
+
+
+
+.flor-derecha {
+
+    animation:
+        florDerecha 4.2s ease-in-out infinite;
+}
+
+
+@keyframes florDerecha {
+
+    0%,
+    100% {
+
+        transform:
+            rotate(4deg);
+
+    }
+
+    50% {
+
+        transform:
+            rotate(-6deg) translateY(-5px);
+
+    }
+
+}
+
+
+
+.flor-pequena {
+
+    animation:
+        florPequena 3.7s ease-in-out infinite;
+}
+
+
+.flor-pequena.derecha {
+
+    animation-delay:
+        0.7s;
+}
+
+
+@keyframes florPequena {
+
+    50% {
+
+        transform:
+            scale(1.06) rotate(5deg);
+
+    }
+
+}
+
+
+
+/* ENVOLTURA DEL RAMO */
+
+.envoltura {
+
+    fill:
+        rgba(250,
+            225,
+            190,
+            0.90);
+
+    stroke:
+        #e7c59e;
+
+    stroke-width: 4;
+}
+
+
+
+.cinta {
+
+    fill:
+        #eaa6b2;
+}
+
+
+.nudo {
+
+    fill:
+        #db8798;
+}
+
+
+.lazo {
+
+    fill:
+        #f0aebb;
+
+    stroke:
+        #db8798;
+
+    stroke-width: 2;
+}
+
+
+
+/* ========================================
+   CARTA
+======================================== */
+
+.carta {
+
+    width:
+        min(700px,
+            93vw);
+
+    position: relative;
+
+    z-index: 10;
+
+    padding:
+        110px clamp(30px,
+            6vw,
+            75px) 65px;
+
+    border-radius: 28px;
+
+    background:
+
+        linear-gradient(rgba(255, 255, 255, 0.92),
+            rgba(255, 250, 240, 0.97));
+
+    border:
+        1px solid rgba(255,
+            255,
+            255,
+            0.9);
+
+    box-shadow:
+        0 30px 70px rgba(96,
+            72,
+            50,
+            0.16);
+}
+
+
+
+.adorno-carta {
+
+    position: absolute;
+
+    top: 35px;
+
+    right: 45px;
+
+    font-size: 30px;
+}
+
+
+
+.carta h2 {
+
+    text-align: center;
+
+    margin-bottom: 32px;
+
+    color: #765f46;
+
+    font-size:
+        clamp(1.8rem,
+            5vw,
+            3rem);
+
+    font-weight: 400;
+}
+
+
+
+.carta p {
+
+    margin-bottom: 20px;
+
+    line-height: 1.9;
+
+    font-size:
+        clamp(1rem,
+            2vw,
+            1.16rem);
+}
+
+
+
+.firma {
+
+    margin-top: 35px;
+
+    text-align: right;
+
+    font-style: italic;
+
+    color: #977c66;
+}
+
+
+
+/* ========================================
+   PÉTALOS QUE CAEN
+======================================== */
+
+.petalo-caida {
+
+    position: fixed;
+
+    top: -80px;
+
+    z-index: 100;
+
+    pointer-events: none;
+
+    animation:
+        caerPetalo linear forwards;
+}
+
+
+
+.petalo-forma {
+
+    width: 17px;
+
+    height: 29px;
+
+    background:
+        linear-gradient(160deg,
+            #ffe772,
+            #f4bf2b);
+
+    border-radius:
+        80% 15% 80% 15%;
+
+    box-shadow:
+        0 4px 7px rgba(150,
+            100,
+            15,
+            0.12);
+}
+
+
+
+@keyframes caerPetalo {
+
+    0% {
+
+        transform:
+            translateY(-10vh) translateX(0) rotate(0deg);
+
+        opacity: 0;
+
+    }
+
+
+    10% {
+
+        opacity: 0.95;
+
+    }
+
+
+    60% {
+
+        transform:
+            translateY(60vh) translateX(55px) rotate(420deg);
+
+    }
+
+
+    100% {
+
+        transform:
+            translateY(115vh) translateX(-50px) rotate(720deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 600px) {
+
+    .contenedor-sobre {
+
+        width: 290px;
+
+        height: 210px;
+    }
+
+
+    .sobre-cuerpo {
+
+        height: 160px;
+    }
+
+
+    .tapa {
+
+        border-left-width: 145px;
+
+        border-right-width: 145px;
+
+        border-top-width: 110px;
+    }
+
+
+    .sello {
+
+        top: 105px;
+    }
+
+
+    .contenedor-ramo {
+
+        width: 390px;
+
+        margin-bottom: -65px;
+    }
+
+
+    .carta {
+
+        padding:
+            85px 28px 45px;
+    }
+
+
+    .carta p {
+
+        text-align: left;
+    }
+
+}
